@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="form">
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+        </div>
+        <div th:fragment="info_footer" th:remove="tag">
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-xs-8 col-md-10">
+                    </div>
+                    <div class="col-xs-4 col-md-2">
+                        <button id="info_submit" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-saved"></span> 确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

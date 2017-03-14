@@ -1,0 +1,12 @@
+<div th:replace="edit">
+
+</div>
+
+<script th:inline="javascript">
+    $(function () {
+        /*<![CDATA[*/
+        var type = /*[[${type}]]*/ 'pest';
+        /*]]>*/
+        (type == 'pest' ? Data.pest : Data.disease).row().create($('#create-panel'));
+    });
+</script>

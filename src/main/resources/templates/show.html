@@ -1,0 +1,10 @@
+<iframe th:id="${type} + '-pv'" th:data-src="@{'/' + ${type} + '/pivotViewer'}" width="100%" frameborder="0" style="padding: 0; margin: 0;"></iframe>
+<script th:inline="javascript">
+    $(function () {
+        /*<![CDATA[*/
+        var type = /*[[${type}]]*/ 'pest';
+        /*]]>*/
+        (type == 'pest' ? Data.pest : Data.disease).pv($('#' + type + '-pv'));
+    });
+</script>
+

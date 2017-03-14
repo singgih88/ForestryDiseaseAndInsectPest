@@ -1,0 +1,32 @@
+spring:
+  data:
+    mongodb:
+      database: qilian_test
+      username: 
+      password: 
+      host: 
+
+pivotviewer:
+  deepzoom:
+    root-path: /var/diseasePest/qilian
+
+i18n:
+  message:
+    base-names:
+      - i18n/messages
+      - i18n/messages-qilian
+server:
+  context-path: /qilian-1.0
+  port: 8444
+
+app:
+  name: qilian
+  alias: 祁连
+
+external:
+  link:
+    plant:
+    animal:
+    gis:
+    visualization:
+    insect:

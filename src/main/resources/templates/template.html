@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>病虫害数据管理 | 模板</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="../static/plugin/AdminLTE/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="../static/plugin/AdminLTE/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="../static/plugin/AdminLTE/dist/css/skins/skin-blue.min.css">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini" data-page="disease-add">
+<div class="wrapper">
+    <div th:fragment="header" th:remove="tag">
+        <header class="main-header">
+            <a href="#" class="logo">
+                <span class="logo-mini">病虫害数据管理系统</span>
+                <span class="logo-lg">病虫害数据管理系统</span>
+            </a>
+            <nav class="navbar navbar-static-top" role="navigation">
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+
+                    </ul>
+
+                    <ul sec:authorize="isAnonymous()" class="nav navbar-nav">
+                        <li><a th:href="@{/login}" href="#">登陆 </a></li>
+                        <li><a th:href="@{/register}" href="#">注册</a></li>
+                    </ul>
+                    <ul sec:authorize="isAuthenticated()" class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span sec:authentication="name" class="">Alexander Pierce</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a th:href="@{/logout}" href="#"><span>注销</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <div th:fragment="sidebar" th:remove="tag">
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <ul class="sidebar-menu">
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-bug"></i> <span>虫害数据</span>
+                            <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="pest-create"><a href="#"><i class="fa fa-plus"></i><span>新增</span></a></li>
+                            <li class="disease-view"><a href="#"><i class="fa fa-list"></i><span>查看</span></a></li>
+                            <li class="pest-show"><a th:href="@{/pest/show}" href="show.html"><i class="fa fa-image"></i><span>展示</span></a></li>
+                            <li class="pest-recognition"><a th:href="@{/pest/recognition}" href="pest/recognition.html"><i class="fa fa-circle"></i><span>识别</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-leaf"></i> <span>病害数据</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                        <ul class="treeview-menu">
+                            <li class="disease-create"><a href="#"><i class="fa fa-plus"></i><span>新增</span></a></li>
+                            <li class="disease-view"><a href="#"><i class="fa fa-list"></i><span>查看</span></a></li>
+                            <li class="disease-show"><a href="#"><i class="fa fa-image"></i><span>展示</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="animal"><a href="#"><i class="fa fa-columns"></i> <span>动物名录</span></a></li>
+                    <li class="plant"><a href="#"><i class="fa fa-columns"></i> <span>植物名录</span></a></li>
+                    <li class="gis"><a href="#"><i class="fa fa-link"></i> <span>GIS数据集成</span></a></li>
+                    <li class="about"><a th:href="@{/about}" href="about.html"><i class="fa fa-book"></i> <span>关于</span></a></li>
+                </ul>
+            </section>
+        </aside>
+    </div>
+    <!-- Content Wrapper. Contains list content -->
+    <div class="content-wrapper">
+        <section class="content">
+            <!-- Your Page Content Here -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <div th:fragment="footer" th:remove="tag">
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+            </div>
+            技术支持团队：<strong>中国科学院计算机网络信息中心科研信息化技术与应用实验室</strong>&nbsp; &nbsp; &nbsp;   邮箱：<strong>esc@cnic.cn</strong>
+        </footer>
+    </div>
+</div>
+
+<script src="../static/plugin/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="../static/plugin/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
+<script src="../static/plugin/AdminLTE/dist/js/app.min.js"></script>
+<div th:fragment="basePath" th:remove="tag">
+    <script type="text/javascript" th:inline="javascript">
+        /*<![CDATA[*/
+        function addBasePath(suffix) {
+            return (/*[[@{/}]]*/ '/ForestryDiseaseAndInsectPest/') + suffix;
+        }
+        /*]]>*/
+    </script>
+</div>
+</body>
+</html>

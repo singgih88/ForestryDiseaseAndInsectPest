@@ -1,0 +1,21 @@
+<link rel="stylesheet" th:href="@{/plugin/AdminLTE/plugins/datatables/media/css/dataTables.bootstrap.css}"
+      href="../static/plugin/AdminLTE/plugins/datatables/media/css/dataTables.bootstrap.css">
+<table th:id="${type} + 'table'" class="table table-bordered table-striped dataTable">
+</table>
+<script th:src="@{/plugin/AdminLTE/plugins/datatables/media/js/jquery.dataTables.min.js}"
+        src="../static/plugin/AdminLTE/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
+<script th:src="@{/plugin/AdminLTE/plugins/datatables/media/js/dataTables.bootstrap.min.js}"
+        src="../static/plugin/AdminLTE/plugins/datatables/media/js/dataTables.bootstrap.min.js"></script>
+<script th:src="@{/plugin/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js}"
+        src="../static/plugin/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script th:src="@{/plugin/AdminLTE/plugins/fastclick/fastclick.js}"
+        src="../static/plugin/AdminLTE/plugins/fastclick/fastclick.js"></script>
+<script th:src="@{/js/jquery.spring-friendly.min.js}" src="../static/js/jquery.spring-friendly.min.js"></script>
+<script th:inline="javascript">
+    $(function () {
+        /*<![CDATA[*/
+        var type = /*[[${type}]]*/ 'pest';
+        /*]]>*/
+        (type == 'pest' ? Data.pest : Data.disease).dataTable($('#' + type + 'table'));
+    });
+</script>

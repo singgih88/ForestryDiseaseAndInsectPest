@@ -1,0 +1,21 @@
+
+spring:
+  profiles:
+    active: beishan-prod
+
+  http:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+
+  jackson:
+      default-property-inclusion: non_empty
+
+endpoints:
+  jmx:
+    enabled: false
+
+pest-image-server:
+  base-path: 
+logging:
+  level: debug

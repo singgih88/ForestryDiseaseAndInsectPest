@@ -1,0 +1,12 @@
+<iframe th:id="${link.id} + '_iframe'" th:src="${link.href}" allowfullscreen mozallowfullscreen webkitallowfullscreen src="http://taxoviz.elab.cnic.cn/isotope_colchina_animals" width="100%" frameborder="0" style="padding: 0; margin: 0;  height: auto;">
+</iframe>
+<script>
+
+</script>
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    var id = /*[[${link.id}]]*/ + '';
+    /*]]>*/
+    iframeAutoHeight(id, $('#' + id + '_iframe'));
+
+</script>

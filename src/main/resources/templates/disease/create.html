@@ -1,0 +1,89 @@
+
+<div th:fragment="form" th:remove="tag">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="control-label">中文名<span class="text-danger"> *</span></label>
+            <input type="text" class="form-control" name="chineseName">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="control-label">别名</label>
+            <input type="text" class="form-control" name="alias">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="control-label">英文名</label>
+            <input type="text" class="form-control" name="scientificName">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="control-label">病原类型</label>
+            <input type="text" class="form-control" name="pathogenicType">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="control-label">病原(病原中文名)</label>
+            <input type="text" class="form-control" name="pathogeny">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="control-label">病原英文名(病原拉丁学名,病原学名)</label>
+            <input type="text" class="form-control" name="pathogenyEnglish">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="control-label">简介(基本信息)</label>
+            <textarea class="form-control" rows="6" name="briefIntroduction"></textarea>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="control-label">分布(分布范围)</label>
+            <textarea class="form-control" rows="6" name="distributionArea"></textarea>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="control-label">传播方式(传播途径)</label>
+            <textarea class="form-control" rows="6" name="transmissionWay"></textarea>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="control-label">症状(病害症状,危害情况)</label>
+            <textarea class="form-control" rows="6" name="symptom"></textarea>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="control-label">为害植物(主要危害作物,寄主)</label>
+            <textarea class="form-control" rows="6" name="damagePlant"></textarea>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="control-label">为害部位(主要为害部位)</label>
+            <textarea class="form-control" rows="6" name="diseasePosition"></textarea>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="control-label">发病规律(发生特点,发生规律)</label>
+            <textarea class="form-control" rows="6" name="occurrenceRule"></textarea>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="control-label">防治方法</label>
+            <textarea class="form-control" rows="6" name="preventionMethod"></textarea>
+        </div>
+    </div>
+    <input type="hidden" name="id"/>
+</div>
+

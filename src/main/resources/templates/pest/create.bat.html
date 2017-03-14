@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>创建虫害数据</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" th:href="@{/plugin/bootstrap/css/bootstrap.css}" href="../../static/plugin/bootstrap/css/bootstrap.css" />
+    <link th:href="@{/plugin/fancybox/jquery.fancybox.css}" href="../../static/plugin/fancybox/jquery.fancybox.css" media="screen" rel="stylesheet" type="text/css" />
+    <style>
+        .preview canvas, .preview img {
+            width: 100% !important;
+        }
+    </style>
+
+</head>
+<body th:type="${type}">
+<div th:replace="template :: header"></div>
+<div class="container">
+    <div class="page-header">
+        <h1>创建虫害数据 <small></small></h1>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">基本信息填写</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <form id="info_form" th:action="@{'/' + (${type}) +'/create'}" th:object="${pest}" method="post" role="form" action="/pest/create">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="chineseName">中文学名<span class="text-danger"> *</span></label>
+                            <input type="text" class="form-control" id="chineseName" th:field="*{chineseName}">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="family">科</label>
+                            <input type="text" class="form-control" id="family" th:field="*{family}">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="subFamily">亚科</label>
+                            <input type="text" class="form-control" id="subFamily" th:field="*{subFamily}">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="phylum">门</label>
+                            <input type="text" class="form-control" id="phylum" th:field="*{phylum}">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="subPhylum">亚门</label>
+                            <input type="text" class="form-control" id="subPhylum" th:field="*{subPhylum}">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="briefIntroduction">简介</label>
+                            <textarea class="form-control" rows="6" id="briefIntroduction" th:field="*{briefIntroduction}"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="occurrenceRule">发生规律</label>
+                            <textarea class="form-control" rows="6" id="occurrenceRule" th:field="*{occurrenceRule}"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="scientificName">拉丁学名</label>
+                            <input type="text" class="form-control" id="scientificName" th:field="*{scientificName}">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="species">种</label>
+                            <input type="text" class="form-control" id="species" th:field="*{species}">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="subSpecies">亚种</label>
+                            <input type="text" class="form-control" id="subSpecies" th:field="*{subSpecies}">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="pestClass">纲</label>
+                            <input type="text" class="form-control" id="pestClass" th:field="*{pestClass}">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="pestSubClass">亚纲</label>
+                            <input type="text" class="form-control" id="pestSubClass" th:field="*{pestSubClass}">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="preventionMethod">防治方法</label>
+                            <textarea class="form-control" rows="6" id="preventionMethod" th:field="*{preventionMethod}"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="distributionArea">分布区域</label>
+                            <textarea class="form-control" rows="6" id="distributionArea" th:field="*{distributionArea}"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="kingdom">界</label>
+                            <input type="text" class="form-control" id="kingdom" th:field="*{kingdom}">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="genus">属</label>
+                            <input type="text" class="form-control" id="genus" th:field="*{genus}">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="subGenus">亚属</label>
+                            <input type="text" class="form-control" id="subGenus" th:field="*{subGenus}">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="order">目</label>
+                            <input type="text" class="form-control" id="order" th:field="*{order}">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="subOrder">亚目</label>
+                            <input type="text" class="form-control" id="subOrder" th:field="*{subOrder}">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="morphologicalCharacteristic">形态特征</label>
+                            <textarea class="form-control" rows="6" id="morphologicalCharacteristic" th:field="*{morphologicalCharacteristic}"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="livingHabit">生活习性</label>
+                            <textarea class="form-control" rows="6" id="livingHabit" th:field="*{livingHabit}"></textarea>
+                        </div>
+                        <input type="hidden" th:field="*{id}"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div th:fragment="info_footer" th:remove="tag">
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-3 text-right">
+                        <p></p>
+                        <button class="add-mode btn btn-info" disabled><span class="glyphicon glyphicon-plus-sign"></span> 当前模式: <strong>创建模式</strong></button>
+                        <button class="edit-mode btn btn-info" disabled><span class="glyphicon glyphicon-edit"></span> 当前模式: <strong>编辑模式</strong></button>
+                    </div>
+                    <div class="col-md-3 text-right">
+                        <p></p>
+                        <button id="info_del" class="btn btn-primary btn-danger"><span class="glyphicon glyphicon-remove-sign"></span> 删 除</button>
+                    </div>
+                    <div class="col-md-3 text-right">
+                        <p></p>
+                        <button id="info_reset" class="btn btn-primary btn-danger"><span class="glyphicon glyphicon-fast-backward"></span> 重 置</button>
+                    </div>
+                    <div class="col-md-3 text-right">
+                        <p></p>
+                        <button id="info_submit" class="btn btn-primary"><span class="glyphicon glyphicon-saved"></span> 确 定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:fragment="picture_info" th:remove="tag">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">图片信息<span class="text-danger">(必须先填写基本信息提交后才能添加图片,数据没有图片将无法展示)</span></h3>
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="row" id="pictures">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <form id="picture_form" th:action="@{'/' + ${type} + '/uploadFile'}" method="post">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    添加图片
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label class="control-label" for="title">图片标题</label>
+                                        <input type="text" class="form-control" id="title">
+                                    </div>
+                                    <div class="form-group">
+                                        <button id="file" class="btn btn-info"><span class="glyphicon glyphicon-picture"></span> 选择上传图片</button>
+                                    </div>
+                                    <div>
+                                        <div class="row">
+                                            <div class="col-xs-8" id="filename">
+                                                <div class="alert alert-danger">您的浏览器不支持 Flash, Silverlight 和 HTML5.</div>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <a class="preview thumbnail" href="javascript:void(0)"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                            0%
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <button id="picture_submit" class="btn btn-primary"><span class="glyphicon glyphicon-upload"></span> 上 传</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--[if lt IE 9]>
+<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script th:src="@{/plugin/jquery/jquery.min.js}" src="../../static/plugin/jquery/jquery.min.js"></script>
+<script th:src="@{/plugin/bootstrap/js/bootstrap.js}" src="../../static/plugin/bootstrap/js/bootstrap.js"></script>
+<script th:src="@{/plugin/plupload/plupload.min.js}" src="../../static/plugin/plupload/plupload.min.js"></script>
+<script th:src="@{/plugin/plupload/zh_CN.js}" src="../../static/plugin/plupload/zh_CN.js"></script>
+<script th:src="@{/plugin/fancybox/jquery.fancybox.js}" src="../../static/plugin/fancybox/jquery.fancybox.js"></script>
+<script th:src="@{/js/page.alert.js}" src="../../static/js/page.alert.js"></script>
+<script th:src="@{/js/create.js}" src="../../static/js/create.js"></script>
+<script th:replace="template :: basePath"></script>
+</body>
+</html>
+
